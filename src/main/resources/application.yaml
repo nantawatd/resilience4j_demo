@@ -1,0 +1,15 @@
+resilience4j:
+    circuitbreaker:
+        backends:
+            serviceA:
+                ringBufferSizeInClosedState: 10
+                ringBufferSizeInHalfOpenState: 5
+                waitDurationInOpenState: 10000
+                failureRateThreshold: 50
+                recordFailurePredicate: com.example.resilience.config.CircuitBreakerPredicate
+            serviceB:
+                ringBufferSizeInClosedState: 3
+                ringBufferSizeInHalfOpenState: 3
+                waitDurationInOpenState: 1000
+                failureRateThreshold: 20
+                recordFailurePredicate: com.example.resilience.config.CircuitBreakerPredicate
